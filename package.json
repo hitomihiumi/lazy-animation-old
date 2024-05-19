@@ -5,12 +5,13 @@
     "gifenc": "^1.0.3",
     "typescript": "^5.4.5"
   },
-  "name": "lazy-animation",
-  "version": "0.5.0",
+  "name": "@hitomihiumi/lazy-animation",
+  "version": "0.5.1",
   "description": "Plugin for LazyCanvas, designed to provide animated image creation functionality",
   "main": "index.js",
   "directories": {
-    "test": "test"
+    "test": "test",
+    "lib": "src"
   },
   "scripts": {
     "test": "node ./test/test.js"
