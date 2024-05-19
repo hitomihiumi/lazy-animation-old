@@ -1,6 +1,6 @@
 import { LazyCanvas, TextLayer, EllipseImageLayer, EllipseLayer, Font, CircleLayer } from "@hitomihiumi/lazy-canvas";
 import { writeFileSync } from "fs"
-import { LazyAnimation, splitGifToFrames} from "../src/index";
+import { LazyAnimation, splitGifToFrames} from "../src";
 
 let font = new Font()
     .setFamily("JoeKubert")

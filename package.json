@@ -6,9 +6,9 @@
     "typescript": "^5.4.5"
   },
   "name": "@hitomihiumi/lazy-animation",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Plugin for LazyCanvas, designed to provide animated image creation functionality",
-  "main": "index.js",
+  "main": "./src/index.js",
   "directories": {
     "test": "test",
     "lib": "src"
