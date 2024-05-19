@@ -1,7 +1,7 @@
-declare module '@hitomihiumi/lazy-canvas-animated';
+declare module '@hitomihiumi/lazy-animation';
 
 import { AnimationOptions } from "./interfaces/AnimationOptions";
 import { splitGifToFrames } from "./utils";
-import { AnimationPlugin } from "./Plugin";
+import { LazyAnimation } from "./Plugin";
 
-export { splitGifToFrames, AnimationPlugin, AnimationOptions };
+export { splitGifToFrames, LazyAnimation, AnimationOptions };

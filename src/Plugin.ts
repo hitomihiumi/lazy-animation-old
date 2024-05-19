@@ -3,12 +3,12 @@ import { GIFEncoder, quantize, applyPalette } from 'gifenc';
 import { LazyCanvas } from "@hitomihiumi/lazy-canvas";
 import { AnimationOptions } from "./interfaces/AnimationOptions";
 
-export class AnimationPlugin {
+export class LazyAnimation {
 
     public options: AnimationOptions;
 
     constructor(options?: AnimationOptions) {
-        this.options ??= options ? { ...options } : { fps: 30, loop: 0, frames: [] };
+        this.options ??= options ? { ...options } : { fps: 30, loop: 0, frames: [], rgbformat: 'rgb565', transparent: false, maxColors: 256 };
         // @ts-ignore
         this.options.loop ??= options.loop ? 0 : -1 || 0;
     }
@@ -45,6 +45,21 @@ export class AnimationPlugin {
         return this.options.frames;
     }
 
+    public setRGBFormat(format: 'rgb565' | 'rgba4444' | 'rgba444') {
+        this.options.rgbformat = format;
+        return this;
+    }
+
+    public setTransparent(transparent: boolean) {
+        this.options.transparent = transparent;
+        return this;
+    }
+
+    public setMaxColors(maxColors: number) {
+        this.options.maxColors = maxColors;
+        return this;
+    }
+
     async generateGif(): Promise<NodeJS.ArrayBufferView> {
         const { loop, fps, frames } = this.options;
         const encoder = new GIFEncoder();
@@ -53,9 +68,9 @@ export class AnimationPlugin {
             const canvas = await frame.renderImage('ctx');
             //@ts-ignore
             const { data, width, height } = canvas.getImageData(0, 0, frame.data.width, frame.data.height);
-            const palette = quantize(data, 256, { format: 'rgba4444' });
-            const index = applyPalette(data, palette, "rgba4444");
-            encoder.writeFrame(index, width, height, { palette, transparent: true, delay: 1000 / fps, loop: loop });
+            const palette = quantize(data, this.options.maxColors, { format: this.options.rgbformat });
+            const index = applyPalette(data, palette, this.options.rgbformat);
+            encoder.writeFrame(index, width, height, { palette, transparent: this.options.transparent, delay: 1000 / fps, loop: loop });
         }
         encoder.finish();
         return encoder.bytesView();
