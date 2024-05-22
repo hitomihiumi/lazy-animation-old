@@ -14,8 +14,8 @@ This extension for `@hitomihiumi/lazy-canvas` made for create gif animations.
 
 ```ts
 import { LazyCanvas, TextLayer, EllipseImageLayer, EllipseLayer, Font, CircleLayer } from "@hitomihiumi/lazy-canvas";
-import { writeFileSync } from "fs"
-import { LazyAnimation, splitGifToFrames} from "../src";
+import { writeFileSync } from "fs";
+import { LazyAnimation, splitGifToFrames } from "@hitomihiumi/lazy-animation";
 
 let font = new Font()
     .setFamily("JoeKubert")
@@ -38,7 +38,7 @@ async function main() {
                     .setWidth(600)
                     .setHeight(200)
                     .setRadius(50)
-                    .setImage(bgarr[i]), //https://static.zerochan.net/Otosora.full.3420604.jpg
+                    .setImage(bgarr[i]), //https://i.imgur.com/x6PYXjW.gif
                 new EllipseLayer()
                     .setX(0)
                     .setY(0)
