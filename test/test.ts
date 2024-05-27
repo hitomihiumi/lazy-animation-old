@@ -8,12 +8,12 @@ let font = new Font()
     .setPath("./assets/fonts/v_CCJoeKubert-Doubled_v1.3.ttf")
 
 async function main() {
-    console.log('Started...')
+    console.log(`[${String(new Date).split(" ", 5)[4]}]`, 'Started...')
     let date = new Date();
 
     let bgarr = await splitGifToFrames('./assets/1.gif')
 
-    console.log('Loaded', bgarr.length, 'frames', 'in', new Date().getTime() - date.getTime(), 'ms')
+    console.log(`[${String(new Date).split(" ", 5)[4]}]`, 'Loaded', bgarr.length, 'frames', 'in', new Date().getTime() - date.getTime(), 'ms')
 
     let arr = [];
 
@@ -117,22 +117,22 @@ async function main() {
         arr.push(canvas);
     }
 
-    console.log('Created', arr.length, 'frames', 'in', new Date().getTime() - date.getTime(), 'ms')
+    console.log(`[${String(new Date).split(" ", 5)[4]}]`, 'Created', arr.length, 'frames', 'in', new Date().getTime() - date.getTime(), 'ms')
 
     let plugin = new LazyAnimation()
         //@ts-ignore
         .addFrames(arr)
         .setFps(15)
         .setLooped(true)
-        .setRGBFormat('rgb565')
-        .setTransparent(true);
+        .setRGBFormat('rgba4444')
+        .setTransparent(false);
 //console.log(plugin.options);
 
     plugin.generateGif().then((gif) => {
         //console.log(gif)
         //@ts-ignore
         writeFileSync("test.gif", gif);
-        console.log('Finished in', new Date().getTime() - date.getTime(), 'ms')
+        console.log(`[${String(new Date).split(" ", 5)[4]}]`, 'Finished in', new Date().getTime() - date.getTime(), 'ms')
     });
 }
 

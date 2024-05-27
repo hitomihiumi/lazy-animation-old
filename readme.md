@@ -231,3 +231,122 @@ let frames = await splitGifToFrames('./assets/1.gif');
 ```
 
 Split a gif into frames. Returns a promise with an array of frames.
+
+# Testing
+
+```
+OS: Windows 11 x64
+Node.js: v17.8.0
+Terminal: Windows Terminal
+CPU: AMD Ryzen 9 5900HX @ 3.30 GHz
+Memory: 32688MiB
+```
+
+## Settings
+
+- 27 frames
+- 600x200
+- 15 fps
+- Loop - on
+
+Background:
+![](https://i.imgur.com/x6PYXjW.gif)
+
+## Transparecy - on
+
+### rgb565
+```shell
+npm test          
+
+> @hitomihiumi/lazy-animation@0.5.3 test
+> node ./test/test.js
+
+[19:22:08] Started...
+[19:22:09] Loaded 27 frames in 854 ms
+[19:22:09] Created 27 frames in 901 ms
+[19:22:17] Finished in 8710 ms
+```
+
+![](https://i.imgur.com/e7zKu5F.gif)
+
+### rgba444
+
+```shell
+npm test
+
+> @hitomihiumi/lazy-animation@0.5.3 test
+> node ./test/test.js
+
+[19:24:34] Started...
+[19:24:35] Loaded 27 frames in 895 ms
+[19:24:35] Created 27 frames in 942 ms
+[19:24:43] Finished in 8906 ms
+```
+
+![](https://i.imgur.com/duxQcs5.gif)
+
+### rgba4444
+
+```shell
+npm test          
+
+> @hitomihiumi/lazy-animation@0.5.3 test
+> node ./test/test.js
+
+[19:28:48] Started...
+[19:28:49] Loaded 27 frames in 759 ms
+[19:28:49] Created 27 frames in 796 ms
+[19:28:55] Finished in 7029 ms
+```
+
+![](https://i.imgur.com/Hn0BSGB.gif)
+
+## Transparecy - off
+
+### rgb565
+
+```shell
+npm test          
+
+> @hitomihiumi/lazy-animation@0.5.3 test
+> node ./test/test.js
+
+[19:30:27] Started...
+[19:30:28] Loaded 27 frames in 810 ms
+[19:30:28] Created 27 frames in 846 ms
+[19:30:35] Finished in 7692 ms
+```
+
+![](https://i.imgur.com/lpgaBeo.gif)
+
+### rgba444
+
+```shell
+npm test
+
+> @hitomihiumi/lazy-animation@0.5.3 test
+> node ./test/test.js
+
+[19:31:40] Started...
+[19:31:41] Loaded 27 frames in 765 ms
+[19:31:41] Created 27 frames in 808 ms
+[19:31:48] Finished in 7524 ms
+```
+
+![](https://i.imgur.com/Reqr7Xk.gif)
+
+### rgba4444
+
+```shell
+npm test          
+
+> @hitomihiumi/lazy-animation@0.5.3 test
+> node ./test/test.js
+
+[19:32:20] Started...
+[19:32:21] Loaded 27 frames in 764 ms
+[19:32:21] Created 27 frames in 800 ms
+[19:32:27] Finished in 6819 ms
+```
+
+![](https://i.imgur.com/gV8dwUU.gif)
