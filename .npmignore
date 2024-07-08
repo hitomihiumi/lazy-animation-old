@@ -1,0 +1,10 @@
+*.ts
+!*.d.ts
+tsconfig.json
+src/
+test/
+node_modules
+package-lock.json
+test.gif
+.idea
+assets/

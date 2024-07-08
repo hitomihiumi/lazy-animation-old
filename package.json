@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "@hitomihiumi/lazy-canvas": "^0.7.4",
+    "@hitomihiumi/lazy-canvas": "^1.1.0",
     "gif-frames": "^1.0.1",
     "gifenc": "^1.0.3",
     "typescript": "^5.4.5"
   },
   "name": "@hitomihiumi/lazy-animation",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "Plugin for LazyCanvas, designed to provide animated image creation functionality",
   "main": "./src/index.js",
   "directories": {

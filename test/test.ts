@@ -1,6 +1,6 @@
 import { LazyCanvas, TextLayer, EllipseImageLayer, EllipseLayer, Font, CircleLayer } from "@hitomihiumi/lazy-canvas";
 import { writeFileSync } from "fs"
-import { LazyAnimation, splitGifToFrames} from "../src";
+import { LazyAnimation, splitGifToFrames} from "../dist";
 
 let font = new Font()
     .setFamily("JoeKubert")
@@ -28,6 +28,7 @@ async function main() {
                     .setWidth(600)
                     .setHeight(200)
                     .setRadius(50)
+                    // @ts-ignore
                     .setImage(bgarr[i]), //https://static.zerochan.net/Otosora.full.3420604.jpg
                 new EllipseLayer()
                     .setX(0)
@@ -98,12 +99,13 @@ async function main() {
                     .setAlign('left'),
                 new TextLayer()
                     .setX(550)
-                    .setY(120)
+                    .setY(105)
                     .setText(`${i + 1 + 50}/100`)
                     .setFont("JoeKubert")
                     .setFontSize(20)
                     .setColor('#fff')
-                    .setAlign('right'),
+                    .setAlign('right')
+                    .setBaseline('bottom'),
                 new TextLayer()
                     .setX(159)
                     .setY(172)
@@ -124,8 +126,8 @@ async function main() {
         .addFrames(arr)
         .setFps(15)
         .setLooped(true)
-        .setRGBFormat('rgba4444')
-        .setTransparent(false);
+        .setRGBFormat('rgb565')
+        .setTransparent(true);
 //console.log(plugin.options);
 
     plugin.generateGif().then((gif) => {
