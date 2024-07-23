@@ -5,8 +5,8 @@
   "name": "Lazy Canvas",
   "includeVersion": true,
   "plugin": ["typedoc-material-theme", "typedoc-plugin-extras"],
-  "favicon": "./gitignore/favicon.ico",
-  "customTitle": "Lazy Canvas",
+  "favicon": "./assets/favicon.ico",
+  "customTitle": "Lazy Animation",
   "themeColor": "#ff8a8a",
   "theme": "default",
   "readme": "readme.md"

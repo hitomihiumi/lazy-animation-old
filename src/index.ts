@@ -1,5 +1,3 @@
-declare module '@hitomihiumi/lazy-animation';
-
 import { AnimationOptions } from "./interfaces/AnimationOptions";
 import { splitGifToFrames } from "./utils";
 import { LazyAnimation } from "./Plugin";
