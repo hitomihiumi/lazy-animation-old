@@ -13,7 +13,7 @@ This extension for `@hitomihiumi/lazy-canvas` made for create gif animations.
 ## Example
 
 ```ts
-import { LazyCanvas, TextLayer, EllipseImageLayer, EllipseLayer, Font, CircleLayer } from "@hitomihiumi/lazy-canvas";
+import { LazyCanvas, TextLayer, EllipseImageLayer, EllipseLayer, Font, CircleLayer, Outline } from "@hitomihiumi/lazy-canvas";
 import { writeFileSync } from "fs";
 import { LazyAnimation, splitGifToFrames } from "@hitomihiumi/lazy-animation";
 
@@ -33,48 +33,43 @@ async function main() {
             .loadFonts(font)
             .addLayers(
                 new EllipseImageLayer()
-                    .setX(0)
-                    .setY(0)
+                    .setX(300)
+                    .setY(100)
                     .setWidth(600)
                     .setHeight(200)
                     .setRadius(50)
-                    .setImage(bgarr[i]), //https://i.imgur.com/x6PYXjW.gif
+                    // @ts-ignore
+                    .setImage(bgarr[i]), //https://static.zerochan.net/Otosora.full.3420604.jpg
                 new EllipseLayer()
-                    .setX(0)
-                    .setY(0)
-                    .setWidth(600)
-                    .setHeight(200)
-                    .setRadius(50)
-                    .setColor('#000')
-                    .setAlpha(0.4),
-                new EllipseLayer()
-                    .setX(1)
-                    .setY(1)
+                    .setX(300)
+                    .setY(100)
                     .setWidth(598)
                     .setHeight(198)
                     .setRadius(50)
-                    .setColor('#fff')
-                    .setFilled(false)
-                    .setStroke(2),
+                    .setColor('#000')
+                    .setAlpha(0.4)
+                    .setOutline(
+                        new Outline()
+                            .setColor('#fff')
+                            .setStroke(2)
+                            .setType('inner')
+                    ),
                 new EllipseImageLayer()
-                    .setX(25)
-                    .setY(25)
+                    .setX(100)
+                    .setY(100)
                     .setWidth(150)
                     .setHeight(150)
                     .setRadius(50)
-                    .setImage('./assets/f332192b2090f437ca9f49c1002287b6.jpg'), //https://i.pinimg.com/1200x/f3/32/19/f332192b2090f437ca9f49c1002287b6.jpg
+                    .setImage('./assets/f332192b2090f437ca9f49c1002287b6.jpg') //https://i.pinimg.com/1200x/f3/32/19/f332192b2090f437ca9f49c1002287b6.jpg
+                    .setOutline(
+                        new Outline()
+                            .setColor('#fff')
+                            .setStroke(2)
+                            .setType('center')
+                    ),
                 new EllipseLayer()
-                    .setX(25)
-                    .setY(25)
-                    .setWidth(150)
-                    .setHeight(150)
-                    .setRadius(50)
-                    .setColor('#fff')
-                    .setFilled(false)
-                    .setStroke(1.5),
-                new EllipseLayer()
-                    .setX(190)
-                    .setY(125)
+                    .setX(372.5)
+                    .setY(142.5)
                     .setWidth(365)
                     .setHeight(35)
                     .setRadius(17.5)
@@ -85,19 +80,19 @@ async function main() {
                     .setWidth((360 / 100) * (i + 51))
                     .setHeight(30)
                     .setRadius(15)
-                    .setColor('#ff8a8a'),
+                    .setColor('#ff8a8a')
+                    .setCentering('legacy'),
                 new CircleLayer()
-                    .setX(140)
-                    .setY(140)
+                    .setX(160)
+                    .setY(160)
                     .setRadius(20)
-                    .setColor('#ff8a8a'),
-                new CircleLayer()
-                    .setX(140)
-                    .setY(140)
-                    .setRadius(20)
-                    .setColor('#fff')
-                    .setFilled(false)
-                    .setStroke(1.5),
+                    .setColor('#ff8a8a')
+                    .setOutline(
+                        new Outline()
+                            .setColor('#fff')
+                            .setStroke(1.5)
+                            .setType('center')
+                    ),
                 new TextLayer()
                     .setX(200)
                     .setY(120)
@@ -108,7 +103,7 @@ async function main() {
                     .setAlign('left'),
                 new TextLayer()
                     .setX(550)
-                    .setY(120)
+                    .setY(105)
                     .setText(`${i + 1 + 50}/100`)
                     .setFont("JoeKubert")
                     .setFontSize(20)

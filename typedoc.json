@@ -1,0 +1,13 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["./src/index.ts"],
+  "out": "docs-out",
+  "name": "Lazy Canvas",
+  "includeVersion": true,
+  "plugin": ["typedoc-material-theme", "typedoc-plugin-extras"],
+  "favicon": "./gitignore/favicon.ico",
+  "customTitle": "Lazy Canvas",
+  "themeColor": "#ff8a8a",
+  "theme": "default",
+  "readme": "readme.md"
+}
