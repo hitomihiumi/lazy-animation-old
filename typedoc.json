@@ -2,7 +2,7 @@
   "$schema": "https://typedoc.org/schema.json",
   "entryPoints": ["./src/index.ts"],
   "out": "docs-out",
-  "name": "Lazy Canvas",
+  "name": "Lazy Animation",
   "includeVersion": true,
   "plugin": ["typedoc-material-theme", "typedoc-plugin-extras"],
   "favicon": "./assets/favicon.ico",

@@ -5,6 +5,11 @@
 
 This extension for `@hitomihiumi/lazy-canvas` made for create gif animations.
 
+## Documentation
+
+You can find the documentation [here](https://hitomihiumi.xyz/)
+
+
 ## Get Started
 
 1. Install the module by using `npm i @hitomihiumi/lazy-animation`
